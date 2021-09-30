@@ -56,6 +56,7 @@ body {
   color: var(--clr-white);
 }
 .grid-container main {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,16 +65,19 @@ body {
 }
 .grid-container main .product__list {
   height: 100%;
-  width: 100%;
+  width: 120rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   gap: 2rem;
 }
 .grid-container main .product__list .list__card {
+  margin: auto;
   height: fit-content;
   width: 25rem;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 .grid-container main .product__list .list__card-top {
   width: 100%;
@@ -84,6 +88,42 @@ body {
 .grid-container main .product__list .list__card-top img {
   width: 100%;
   transition: transform 0.2s linear;
+}
+.grid-container main .product__list .list__card-top .list__card-menu {
+  position: absolute;
+  top: 1.4rem;
+  right: 0;
+  height: 12rem;
+  width: 5.4rem;
+  z-index: 1;
+  padding-right: 1.4rem;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  overflow: hidden;
+}
+.grid-container main .product__list .list__card-top .list__card-menu li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  background: var(--clr-white);
+  transition: transform 0.2s linear;
+  transform: translateX(150%);
+}
+.grid-container main .product__list .list__card-top .list__card-menu li:nth-child(1) {
+  transition-delay: 0.3s;
+}
+.grid-container main .product__list .list__card-top .list__card-menu li:nth-child(2) {
+  margin: 0.4rem 0;
+  transition-delay: 0.2s;
+}
+.grid-container main .product__list .list__card-top .list__card-menu li:nth-child(3) {
+  transition-delay: 0.1s;
+}
+.grid-container main .product__list .list__card-top .list__card-menu li:hover {
+  background: #FF2020;
+  color: var(--clr-white);
+  cursor: pointer;
 }
 .grid-container main .product__list .list__card-bottom {
   padding: 0 1rem;
@@ -105,11 +145,35 @@ body {
   grid-column: 1/2;
 }
 .grid-container main .product__list .list__card-bottom .prod__rate {
+  margin-left: auto;
   color: #FFD513;
   grid-column: 2/3;
 }
+.grid-container main .product__list .list__card-bottom .prod__rate svg {
+  margin: 0 0.1rem;
+  cursor: pointer;
+}
 .grid-container main .product__list .list__card:hover img {
   transform: scale(1.4) translateX(-10%);
+}
+.grid-container main .product__list .list__card:hover .list__card-menu li {
+  transition: transform 0.3s linear;
+  transform: translateX(0);
+}
+.grid-container main .product__list .list__card:hover .list__card-menu li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.grid-container main .product__list .list__card:hover .list__card-menu li:nth-child(2) {
+  transition-delay: 0.25s;
+}
+.grid-container main .product__list .list__card:hover .list__card-menu li:nth-child(3) {
+  transition-delay: 0.35s;
+}
+
+@media (max-width: 1200px) {
+  .grid-container main .product__list {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
