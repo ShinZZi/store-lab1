@@ -71,7 +71,6 @@ body {
   gap: 2rem;
 }
 .grid-container main .product__list .list__card {
-  margin: auto;
   height: fit-content;
   width: 25rem;
   display: flex;
@@ -87,7 +86,7 @@ body {
 }
 .grid-container main .product__list .list__card-top img {
   width: 100%;
-  transition: transform 0.2s linear;
+  transition: transform 0.3s linear;
 }
 .grid-container main .product__list .list__card-top .list__card-menu {
   position: absolute;
@@ -154,7 +153,7 @@ body {
   cursor: pointer;
 }
 .grid-container main .product__list .list__card:hover img {
-  transform: scale(1.4) translateX(-10%);
+  transform: scale(1.5) translateX(-10%);
 }
 .grid-container main .product__list .list__card:hover .list__card-menu li {
   transition: transform 0.3s linear;
@@ -169,10 +168,52 @@ body {
 .grid-container main .product__list .list__card:hover .list__card-menu li:nth-child(3) {
   transition-delay: 0.35s;
 }
+.grid-container main .paginate {
+  display: flex;
+  justify-content: center;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  margin-top: 2.3rem;
+  font-size: 1.3rem;
+}
+.grid-container main .paginate-pre, .grid-container main .paginate-next {
+  background: #EFEFEF;
+  width: 4rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.25s linear;
+}
+.grid-container main .paginate-pre:hover, .grid-container main .paginate-pre.active, .grid-container main .paginate-next:hover, .grid-container main .paginate-next.active {
+  background: var(--clr-tag-active);
+  color: var(--clr-white);
+}
+.grid-container main .paginate-pages {
+  display: flex;
+  list-style: none;
+  margin: auto;
+}
+.grid-container main .paginate-pages .page {
+  margin: 0 0 0 1rem;
+  width: 4rem;
+  background: #EFEFEF;
+  cursor: pointer;
+  transition: background 0.25s linear;
+}
+.grid-container main .paginate-pages .page:last-child {
+  margin-right: 1rem;
+}
+.grid-container main .paginate-pages .page:hover, .grid-container main .paginate-pages .page.active {
+  background: var(--clr-tag-active);
+  color: var(--clr-white);
+}
 
 @media (max-width: 1200px) {
   .grid-container main .product__list {
     width: 100%;
+  }
+  .grid-container main .product__list .list__card {
+    margin: 0 auto;
   }
 }
 

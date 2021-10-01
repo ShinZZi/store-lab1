@@ -19,23 +19,27 @@
     <div class="grid-container">
         <header id="header">
             <ul class="header__tags">
-                <li class="header__tags-item active">All</li>
-                <li class="header__tags-item">Watch</li>
-                <li class="header__tags-item">Handbag</li>
-                <li class="header__tags-item">Shirts</li>
+                <li data-filter="all" class="header__tags-item active">All</li>
+                <li data-filter="watch" class="header__tags-item">Watch</li>
+                <li data-filter="handbag" class="header__tags-item">Handbag</li>
+                <li data-filter="shirt" class="header__tags-item">Shirts</li>
                 <li class="header__tags-item">+</li>
             </ul>
         </header>
 
         <main>
             <div class="product__list"></div>
-            <div style="font-size: 5rem;">
-                lorem200
-            </div>
             <div class="paginate">
-                <div class="paginate-pre"></div>
-                <div class="paginate-pages"></div>
-                <div class="paginate-next"></div>
+                <div class="paginate-pre"><i class="fas fa-angle-double-left"></i></div>
+                <ul class="paginate-pages">
+                    <li class="page active">1</li>
+                    <li class="page">2</li>
+                    <li class="page">3</li>
+                    <li class="page">4</li>
+                    <li class="page">5</li>
+                    <li class="page">6</li>
+                </ul>
+                <div class="paginate-next"><i class="fas fa-angle-double-right"></i></div>
             </div>
         </main>
     </div>
