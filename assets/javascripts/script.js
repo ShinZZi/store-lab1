@@ -1,37 +1,116 @@
-let tags = document.querySelectorAll('.header__tags-item');
-let rating = document.querySelectorAll('.prod__rate');
-console.log(rating);
+const tagsMenu = document.querySelectorAll('.header__tags-item');
+const rating = document.querySelectorAll('.prod__rate');
 
+const products = [
+    {
+        name: "Rayon a-line Dress",
+        price: 13.45,
+        cate: 'Shirts',
+        rating: 4,
+        image: '1.jpg'
+    },
+    {
+        name: "Black men Watch",
+        price: 13.45,
+        cate: 'Watch',
+        rating: 3,
+        image: '2.jpg'
+    },
+    {
+        name: "Men's Regular Fit Shirts",
+        price: 13.45,
+        cate: 'Shirts',
+        rating: 5,
+        image: '3.jpg'
+    },
+    {
+        name: "Men's Handbag",
+        price: 13.45,
+        cate: 'Watch',
+        rating: 3,
+        image: '4.jpg'
+    },
+    {
+        name: "Women's Relaxed Fit Jeans",
+        price: 13.45,
+        cate: 'Watch',
+        rating: 1,
+        image: '5.jpg'
+    },
+    {
+        name: "Round Neck Printed Top",
+        price: 13.45,
+        cate: 'Watch',
+        rating: 4,
+        image: '6.jpg'
+    },
+    {
+        name: "Mens Running Shoe",
+        price: 13.45,
+        cate: 'Watch',
+        rating: 3,
+        image: '7.jpg'
+    },
+    {
+        name: "Men Pullover Sweater",
+        price: 13.45,
+        cate: 'Watch',
+        rating: 5,
+        image: '8.jpg'
+    }
+];
 
-const removeActiveTag = () => {
-    for (let i = 0; i <= tags.length; i++) {
-        if (tags[i].classList.contains('active')) {
-            tags[i].classList.remove('active');
+let removeActiveTag = () => {
+    for (let i = 0; i <= tagsMenu.length; i++) {
+        if (tagsMenu[i].classList.contains('active')) {
+            tagsMenu[i].classList.remove('active');
             return;
         }
     }
 };
 
-tags.forEach((tag) => {
+tagsMenu.forEach((tag) => {
     tag.addEventListener('click', () => {
         removeActiveTag();
         tag.classList.add('active');
     });
 });
 
-const ratingProduct = () => {
-    for (let i = 0; i < rating.length; i++) {
-        let yellowStar = rating[i].innerHTML;
-        let blackStar = 5 - yellowStar;
-        rating[i].innerHTML = '';
+const ratingProduct = (yellowStar) => {
+    let rating = ``;
+    let blackStar = 5 - yellowStar;
+    for (let i = 0; i < yellowStar; i++) {
+        rating += '<i class="fas fa-star"></i>';
+    }
+    for (let i = 0; i < blackStar; i++) {
+        rating += '<i class="far fa-star"></i>';
+    }
+    return rating;
+};
 
-        for (let y = 0; y < yellowStar; y++) {
-            rating[i].innerHTML += `<i class="fas fa-star"></i>`;
-        }
-        for (let y = 0; y < blackStar; y++) {
-            rating[i].innerHTML += `<i class="far fa-star"></i>`;
-        }
+const fetchProducts = () => {
+    let productSection = document.querySelector('.product__list');
+    for (let i = 0; i < products.length; i++) {
+        productSection.innerHTML += `
+        <div class="list__card">
+            <div class="list__card-top">
+                <img src="./assets/img/products/` + products[i].image + `" alt="">
+                <ul class="list__card-menu">
+                    <li><i class="fas fa-heart"></i></li>
+                    <li><i class="fas fa-shopping-cart"></i></li>
+                    <li><i class="far fa-eye"></i></li>
+                </ul>
+            </div>
+            <div class="list__card-bottom">
+                <div class="prod__name">` + products[i].name + `</div>
+                <div class="prod__price">$` + products[i].price + `</div>
+                <div class="prod__rate"> ` + ratingProduct(products[i].rating) + `</div>
+            </div>
+        </div>
+        `;
     }
 };
 
-ratingProduct();
+document.addEventListener("DOMContentLoaded", function () {
+    fetchProducts();
+});
