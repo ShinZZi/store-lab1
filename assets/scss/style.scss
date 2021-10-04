@@ -100,31 +100,32 @@ body {
 
                     .list__card-menu {
                         position: absolute;
-                        top: 1.4rem;
+                        top: 0;
                         right: 0;
-                        height: 12rem;
-                        width: 5.4rem;
-                        z-index: 1;
-                        padding-right: 1.4rem;
+                        padding: 1.4rem 1.4rem 0 19.6rem;
                         display: grid;
                         grid-template-rows: repeat(3, 1fr);
                         overflow: hidden;
+                        z-index: 1;
 
                         li {
+                            position: relative;
                             display: flex;
                             justify-content: center;
                             align-items: center;
                             list-style: none;
                             background: var(--clr-white);
                             transition: transform .2s linear;
+                            margin-bottom: .4rem;
                             transform: translateX(150%);
+                            height: 4rem;
+                            width: 4rem;
 
                             &:nth-child(1) {
                                 transition-delay: .3s;
                             }
 
                             &:nth-child(2) {
-                                margin: .4rem 0;
                                 transition-delay: .2s;
                             }
 
@@ -136,6 +137,24 @@ body {
                                 background: #FF2020;
                                 color: var(--clr-white);
                                 cursor: pointer;
+
+                                p {
+                                    display: block;
+                                    color: #000;
+                                }
+                            }
+
+                            p {
+                                display: none;
+                                position: absolute;
+                                top: 50%;
+                                left: 0;
+                                width: max-content;
+                                padding: .4rem .6rem;
+                                border-radius: .4rem;
+                                background: var(--clr-white);
+                                font-size: 1.2rem;
+                                transform: translate(-110%, -50%);
                             }
                         }
                     }
@@ -211,7 +230,7 @@ body {
             text-align: center;
             margin-top: 2.3rem;
             font-size: 1.3rem;
-            
+
             &-pre,
             &-next {
                 background: #EFEFEF;
@@ -219,19 +238,19 @@ body {
                 font-size: .8rem;
                 cursor: pointer;
                 transition: background .25s linear;
-                
+
                 &:hover,
                 &.active {
                     background: var(--clr-tag-active);
                     color: var(--clr-white);
                 }
             }
-            
+
             &-pages {
                 display: flex;
                 list-style: none;
                 margin: auto;
-                
+
                 .page {
                     margin: 0 0 0 1rem;
                     width: 4rem;

@@ -111,9 +111,18 @@ const fetchProducts = (cate = 'all') => {
             <div class="list__card-top">
                 <img src="./assets/img/products/` + product[i].image + `" alt="">
                 <ul class="list__card-menu">
-                    <li><i class="fas fa-heart"></i></li>
-                    <li><i class="fas fa-shopping-cart"></i></li>
-                    <li><i class="far fa-eye"></i></li>
+                    <li>
+                        <i class="fas fa-heart"></i>
+                        <p>Add to Wishlist</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Add to Card</p>
+                    </li>
+                    <li>
+                        <i class="far fa-eye"></i>
+                        <p>Add to Details</p>
+                    </li>
                 </ul>
             </div>
             <div class="list__card-bottom">
