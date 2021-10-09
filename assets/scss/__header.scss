@@ -1,0 +1,28 @@
+header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 1.6rem;
+    background: var(--clr-white);
+
+    .header__tags {
+        display: flex;
+        align-items: center;
+
+        &-item {
+            margin: .5rem;
+            display: block;
+            cursor: pointer;
+            list-style: none;
+            padding: .8rem 2rem;
+            letter-spacing: .1rem;
+            background: var(--clr-tag);
+
+            &:hover,
+            &.active {
+                background: var(--clr-tag-active);
+                color: var(--clr-white);
+            }
+        }
+    }
+}
